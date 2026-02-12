@@ -5,7 +5,7 @@ export interface UserProfile {
   id: string;
   email: string;
   fullName: string;
-  role: 'ADMIN' | 'RESELLER';
+  role: UserRole;
   password?: string;
   avatarUrl?: string;
   createdAt: string;
@@ -48,5 +48,17 @@ export interface DashboardStats {
   netProfit: number;
 }
 
-// Note: Redundant ambient declarations were removed as node_modules are present.
-
+// Declarações globais para calar os erros do compilador TypeScript no editor
+// Como estamos usando Import Maps no navegador, o TS precisa dessas definições ambientais
+// @ts-ignore
+declare module 'react';
+// @ts-ignore
+declare module 'react-dom/client';
+// @ts-ignore
+declare module 'react-router-dom';
+// @ts-ignore
+declare module 'lucide-react';
+// @ts-ignore
+declare module 'recharts';
+// @ts-ignore
+declare module '@supabase/supabase-js';
