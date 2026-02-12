@@ -1,16 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate, Link, useLocation, Outlet } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  Users, 
-  Wallet, 
-  MessageSquare, 
-  Settings, 
-  Key, 
-  LogOut, 
-  Menu, 
-  X, 
+import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation, Outlet } from 'react-router-dom';
+import {
+  LayoutDashboard,
+  Users,
+  Wallet,
+  MessageSquare,
+  Settings,
+  Key,
+  LogOut,
+  Menu,
+  X,
   ChevronRight,
   User,
   ShieldCheck,
@@ -34,7 +34,7 @@ import Register from './views/Register';
 
 const Sidebar = ({ user, onClose }: { user: UserProfile; onClose?: () => void }) => {
   const location = useLocation();
-  
+
   const navItems = [
     { label: 'Dashboard', path: '/', icon: LayoutDashboard },
     { label: 'Clientes', path: '/clients', icon: Users },
@@ -65,11 +65,10 @@ const Sidebar = ({ user, onClose }: { user: UserProfile; onClose?: () => void })
             key={item.path}
             to={item.path}
             onClick={onClose}
-            className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 group ${
-              isActive(item.path) 
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' 
+            className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 group ${isActive(item.path)
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
                 : 'text-zinc-400 hover:bg-white/5 hover:text-white'
-            }`}
+              }`}
           >
             <item.icon className={`w-5 h-5 ${isActive(item.path) ? 'text-white' : 'text-zinc-500 group-hover:text-white'}`} />
             <span className="font-medium">{item.label}</span>
@@ -84,11 +83,10 @@ const Sidebar = ({ user, onClose }: { user: UserProfile; onClose?: () => void })
                 key={item.path}
                 to={item.path}
                 onClick={onClose}
-                className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 group ${
-                  isActive(item.path) 
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' 
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 group ${isActive(item.path)
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20'
                     : 'text-zinc-400 hover:bg-white/5 hover:text-white'
-                }`}
+                  }`}
               >
                 <item.icon className={`w-5 h-5 ${isActive(item.path) ? 'text-white' : 'text-zinc-500 group-hover:text-white'}`} />
                 <span className="font-medium">{item.label}</span>
@@ -98,9 +96,9 @@ const Sidebar = ({ user, onClose }: { user: UserProfile; onClose?: () => void })
         )}
 
         <div className="pt-8">
-          <a 
-            href="https://painel.cloudnation.top/" 
-            target="_blank" 
+          <a
+            href="https://painel.cloudnation.top/"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-between gap-3 px-4 py-4 rounded-2xl bg-gradient-to-r from-emerald-600/20 to-teal-600/20 border border-emerald-500/20 text-emerald-400 hover:scale-[1.02] transition-all group shadow-lg shadow-emerald-500/5"
           >
@@ -117,9 +115,8 @@ const Sidebar = ({ user, onClose }: { user: UserProfile; onClose?: () => void })
         <Link
           to="/profile"
           onClick={onClose}
-          className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 group ${
-            isActive('/profile') ? 'bg-zinc-800 text-white' : 'text-zinc-400 hover:bg-white/5 hover:text-white'
-          }`}
+          className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-200 group ${isActive('/profile') ? 'bg-zinc-800 text-white' : 'text-zinc-400 hover:bg-white/5 hover:text-white'
+            }`}
         >
           <User className="w-5 h-5 text-zinc-500 group-hover:text-white" />
           <span className="font-medium text-sm">Meu Perfil</span>
@@ -159,7 +156,7 @@ const Layout = ({ user }: { user: UserProfile }) => {
 
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
         <header className="h-20 flex items-center justify-between px-6 lg:px-10 border-b border-white/5 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-40">
-          <button 
+          <button
             className="lg:hidden p-2 text-zinc-400 hover:text-white"
             onClick={() => setIsSidebarOpen(true)}
           >
@@ -181,8 +178,8 @@ const Layout = ({ user }: { user: UserProfile }) => {
                 <p className="text-xs font-bold text-white">{user.fullName}</p>
                 <p className="text-[10px] text-indigo-400 uppercase tracking-tighter">{user.role}</p>
               </div>
-              <img 
-                src={user.avatarUrl || `https://ui-avatars.com/api/?name=${user.fullName}&background=4f46e5&color=fff`} 
+              <img
+                src={user.avatarUrl || `https://ui-avatars.com/api/?name=${user.fullName}&background=4f46e5&color=fff`}
                 className="w-10 h-10 rounded-2xl border-2 border-white/5 shadow-xl"
                 alt="Avatar"
               />
