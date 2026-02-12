@@ -48,18 +48,5 @@ export interface DashboardStats {
   netProfit: number;
 }
 
-// Declarações globais para calar os erros do compilador TypeScript no editor
-// Como estamos usando Import Maps no navegador, o TS precisa dessas definições ambientais
-// Fix: Using @ts-ignore to suppress "Invalid module name in augmentation" errors in a module file where the base modules aren't resolved by the compiler.
-// @ts-ignore
-declare module 'react';
-// @ts-ignore
-declare module 'react-dom/client';
-// @ts-ignore
-declare module 'react-router-dom';
-// @ts-ignore
-declare module 'lucide-react';
-// @ts-ignore
-declare module 'recharts';
-// @ts-ignore
-declare module '@supabase/supabase-js';
+// Note: Redundant ambient declarations were removed as node_modules are present.
+
