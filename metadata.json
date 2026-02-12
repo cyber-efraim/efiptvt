@@ -1,0 +1,7 @@
+{
+  "name": "EF IPTV - StreamMaster Pro",
+  "description": "SaaS premium para gerenciamento de revendas de IPTV com dashboards financeiros, CRM de clientes e segurança de alto nível.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
